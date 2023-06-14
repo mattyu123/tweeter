@@ -28,3 +28,9 @@ nav {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ .container {
+  width: 90%;
+  color: #545149;
+  margin: 0 auto;
+ }
