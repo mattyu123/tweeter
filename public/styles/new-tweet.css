@@ -1,0 +1,35 @@
+.container {
+  font-size: 1.5em;
+}
+
+.button-organizer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.counter {
+  font-family: "Bungee", "sans-serif";
+}
+
+.form-organizer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#tweet-text {
+  width: 30em;
+  margin: 10px 0px 10px 0px;
+}
+
+#form-label {
+  border-bottom: black solid;
+  padding: 10px 0px 10px 0px;
+}
+
+button {
+  font-family: "Bungee", "sans-serif";
+  background-color: #4056A1;
+  color: white;
+}
