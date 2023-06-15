@@ -13,9 +13,14 @@ $('#tweet-text').on("input", function() {
   $(this).parents().find(".counter").val(charactersRemaining)
 
   const parent = $(this).parents().find(".counter")
-
+  
+  //if character count is negative, then it should be red
   if (charactersRemaining < 0) {
     $(parent).css("color", "red")
+  }
+
+  if (charactersRemaining >= 0) {
+    $(parent).css("color", "#545149")
   }
 })
 
