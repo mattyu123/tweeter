@@ -52,4 +52,6 @@ p {
   color: #ff8c00;
 }
 
-
+#user-handle {
+  color: grey;
+}
