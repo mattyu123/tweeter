@@ -1,5 +1,7 @@
 .new-tweet {
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container {
@@ -26,10 +28,15 @@
 .tweet-text {
   width: 30em;
   margin: 10px 0px 10px 0px; 
+  background-color: #f4f1ec;
+  border-bottom: solid black;
+  border-right: none;
+  border-left: none;
+  border-top: none;
 }
 
 .form-label {
-  border-bottom: black solid;
+  /* border-bottom: black solid; */
   padding: 10px 0px 10px 0px;
 }
 
