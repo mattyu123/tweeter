@@ -1,5 +1,5 @@
 .new-tweet {
-  
+
 }
 
 .container {
@@ -20,14 +20,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: stretch;
 }
 
-#tweet-text {
+.tweet-text {
   width: 30em;
   margin: 10px 0px 10px 0px; 
 }
 
-#form-label {
+.form-label {
   border-bottom: black solid;
   padding: 10px 0px 10px 0px;
 }
