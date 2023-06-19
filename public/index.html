@@ -54,7 +54,7 @@
         <h2>Compose Tweet</h2>
         <form method="POST" action="/tweets" class="form-organizer">
           <label for="tweet-text" class="form-label">What are you humming about?</label>
-          <textarea name="text" class="tweet-text"></textarea>
+          <textarea name="text" id="tweet-text"></textarea>
           <div class="button-organizer">
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
@@ -62,15 +62,15 @@
         </form>
       </section>
       <section class="tweets-container">
-        <article>
-          <header class="tweet-header">
+        <!-- <article> -->
+          <!-- <header class="tweet-header">
             <div class = face-name>
               <i class="fa-solid fa-face-smile"></i>
               <h3>John Adams</h3>
             </div>
             <h3 id = "user-handle">@JohnAdams</h3>
           </header>
-          <p>
+          <p class="tweet-content">
             Content of the tweet itself
           </p>
           <footer class="tweet-footer">
@@ -81,7 +81,7 @@
               <i class="fa-solid fa-heart" id = "fa-heart"></i>
             </div>
           </footer>
-        </article>
+        </article> -->
       </section>
     </main>
   </body>

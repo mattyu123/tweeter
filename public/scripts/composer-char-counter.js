@@ -9,6 +9,8 @@ $('#tweet-text').on("input", function() {
   const lengthOfTweet = total.length;
   const charactersRemaining = maxCharacters - lengthOfTweet
 
+  console.log($(this).val())
+
   //traverse up the DOM tree and back down again looking for .counter class
   $(this).parents().find(".counter").val(charactersRemaining)
 
