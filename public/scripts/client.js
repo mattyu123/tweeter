@@ -20,6 +20,17 @@ const data = [
       "text": "Je pense , donc je suis"
     },
     "created_at": 1687125185789
+  },
+  {
+    "user": {
+      "name": "Matt",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@myu1"
+    },
+    "content": {
+      "text": "Hi I am Matt"
+    },
+    "created_at": 91111234321414
   }
 ]
 
@@ -58,3 +69,21 @@ const renderTweets = function(tweetArr) {
 }
 
 renderTweets(data)
+
+//Event listener that prevents the default behaviour 
+$('.form-organizer').on("submit", function (event) {
+  const url = '/tweets/';
+  
+  event.preventDefault();
+  const formData = $(this).serialize()
+
+  $.ajax({
+    type: 'POST',
+    url, 
+    data: formData
+  })
+  .then(console.log("success"))
+  .catch((error)=> {
+    console.log(error.responseText)
+  })
+})
