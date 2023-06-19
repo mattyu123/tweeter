@@ -1,4 +1,4 @@
-.tweets-container {
+#tweets-container {
   border: black solid;
   margin: 10px 10px 10px 10px;
 }
@@ -36,7 +36,7 @@ p {
   border-top: black solid;
 }
 
-.tweets-container:hover {
+#tweets-container:hover {
   box-shadow: 10px 5px 5px rgb(37, 150, 190);
 }
 
