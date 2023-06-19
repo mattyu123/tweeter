@@ -1,5 +1,4 @@
 #tweets-container {
-  border: black solid;
   margin: 10px 10px 10px 10px;
 }
 
@@ -20,6 +19,11 @@ p {
   margin: 10px 10px 10px 10px;
 }
 
+.individual-tweet {
+  border: black solid;
+  margin: 5px 0px 5px 0px;
+}
+
 .face-name {
   display: flex;
   flex-direction: row;
@@ -36,7 +40,7 @@ p {
   border-top: black solid;
 }
 
-#tweets-container:hover {
+.individual-tweet:hover {
   box-shadow: 10px 5px 5px rgb(37, 150, 190);
 }
 

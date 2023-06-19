@@ -26,7 +26,7 @@ const data = [
 //Takes a tweet object and returns a tweet article element containing entire HTML structure of tweet
 const createTweetElement= function(tweet) {
   let $tweet = (
-  `<article>
+  `<article class="individual-tweet">
     <header class = "tweet-header">
       <div class="face-name">
         <i class="fa-solid fa-face-smile"></i>
