@@ -70,13 +70,29 @@ const renderTweets = function(tweetArr) {
 const loadTweets = function(renderTweets) {
   const server = '/tweets/';
 
-  $.ajax({
-    type: 'GET',
-    url: server,
-    success: function (data) {
-      renderTweets(data)
-    }
-  })
-}
+  $.ajax(server, {method: 'GET'})
+    .then (function (data) {
+      renderTweets(data);
+    })
+    .catch((error) => {
+      console.log(`error: ${error.status}, ${error.statusText}`)
+    })
+  }
+
+
+
+  //this code works
+  // $.ajax({
+  //   type: 'GET',
+  //   url: server,
+  //   success: function (data) {
+  //     renderTweets(data)
+  //   },
+  //   error: function(error) {
+  //     alert("Unable to pull tweets, please try again")
+  //     console.log("Error",error)
+  //   }
+  // })
+
 
 loadTweets(renderTweets)
