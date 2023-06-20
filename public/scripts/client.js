@@ -1,3 +1,4 @@
+
 //Takes a tweet object and returns a tweet article element containing entire HTML structure of tweet
 const createTweetElement= function(tweet) {
   let $tweet = (
@@ -13,7 +14,7 @@ const createTweetElement= function(tweet) {
       ${tweet.content.text}
     </p>
     <footer class="tweet-footer">
-    <p>${tweet.created_at}</p>
+    <p>${timeago.format(tweet.created_at)}</p>
     <div>
       <i class="fa-solid fa-flag" id = "fa-flag"></i>
       <i class="fa-solid fa-retweet" id = "fa-retweet"></i>
@@ -43,23 +44,6 @@ $('.form-organizer').on("submit", function (event) {
   })
 })
 
-
-
-//function that makes an ajax get request to pull the tweet list from the server's JSON
-// const loadTweets = function () {
-//   const server = '/tweets/';
-//   const classPlace = $('.form-organizer');
-
-//   $.get(server, function(event) {    
-//     $.ajax(server, {method: 'GET'})
-//     .then(function (event) {
-//       console.log(event)
-//       classPlace.replaceWith(event)
-//       return event;  
-//     })
-//   })
-// }
-
 //render function takes in an array of tweet objects and appends each to #tweets-container 
 const renderTweets = function(tweetArr) {
   for (let item = 0; item < tweetArr.length; item++) {
@@ -67,6 +51,7 @@ const renderTweets = function(tweetArr) {
   }
 }
 
+//function that fetches tweets using ajax
 const loadTweets = function(renderTweets) {
   const server = '/tweets/';
 
@@ -79,20 +64,5 @@ const loadTweets = function(renderTweets) {
     })
   }
 
-
-
-  //this code works
-  // $.ajax({
-  //   type: 'GET',
-  //   url: server,
-  //   success: function (data) {
-  //     renderTweets(data)
-  //   },
-  //   error: function(error) {
-  //     alert("Unable to pull tweets, please try again")
-  //     console.log("Error",error)
-  //   }
-  // })
-
-
 loadTweets(renderTweets)
+
