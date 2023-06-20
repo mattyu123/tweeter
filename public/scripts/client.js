@@ -5,7 +5,6 @@ const escapeText = function(str) {
   return div.innerHTML;
 }
 
-
 //Takes a tweet object and returns a tweet article element containing entire HTML structure of tweet
 const createTweetElement= function(tweet) {
   let $tweet = (

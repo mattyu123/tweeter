@@ -46,3 +46,11 @@ button {
   background-color: #4056A1;
   color: white;
 }
+
+#error-message{
+  color: white;
+  background: #c51244;
+  margin: 10px;
+  padding: 10px;
+  font-size: 1em;
+}

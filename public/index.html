@@ -52,6 +52,9 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        <div id="error-message">
+          <strong>You cannot have a tweet that's more than 140 characters</strong>
+        </div>
         <h2>Compose Tweet</h2>
         <form method="POST" action="/tweets" class="form-organizer">
           <label for="tweet-text" class="form-label">What are you humming about?</label>
