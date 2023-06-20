@@ -1,3 +1,11 @@
+//create an escape function to prevent 
+const escapeText = function(str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+
 //Takes a tweet object and returns a tweet article element containing entire HTML structure of tweet
 const createTweetElement= function(tweet) {
   let $tweet = (
@@ -10,7 +18,7 @@ const createTweetElement= function(tweet) {
       <h3 id="user-handle">${tweet.user.handle}</h3>
     </header>
     <p class="tweet-content">
-      ${tweet.content.text}
+      ${escapeText(tweet.content.text)}
     </p>
     <footer class="tweet-footer">
     <p>${timeago.format(tweet.created_at)}</p>
@@ -38,14 +46,6 @@ const loadTweets = function(renderTweets) {
     })
   }
 
-  // $.ajax(server, {method: 'GET'})
-  // .then (() => {
-  //   console.log("success")
-  // })
-  // .catch((error) => {
-  //   console.log(`error: ${error.status}, ${error.statusText}`)
-  // })
-  // }
 
 //Event listener that sends the serialized form data to the server
 $('.form-organizer').on("submit", function (event) {
@@ -82,11 +82,13 @@ $('.form-organizer').on("submit", function (event) {
   })
 })
 
+//function takes the tweet and adds it to a new tweet container 
 const renderTweets = function(tweetArr) {
   //empty the #tweets-container so that tweets are not duplicated when rendered 
   $('#tweets-container').empty();
-
+  
   for (let item = 0; item < tweetArr.length; item++) {
     $('#tweets-container').prepend(createTweetElement(tweetArr[item]))
   }
 }
+
