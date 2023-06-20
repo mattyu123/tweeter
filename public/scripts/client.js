@@ -1,4 +1,3 @@
-
 //Takes a tweet object and returns a tweet article element containing entire HTML structure of tweet
 const createTweetElement= function(tweet) {
   let $tweet = (
@@ -26,11 +25,45 @@ const createTweetElement= function(tweet) {
   return $tweet;
 };
 
-//Event listener that sends the serialized form data to the server
+//Event listener that sends the serialized form data to the server -- Code works
+// $('.form-organizer').on("submit", function (event) {
+//   const url = '/tweets/';
+  
+//   event.preventDefault();
+//   const formData = $(this).serialize()
+
+//   $.ajax({
+//     type: 'POST',
+//     url, 
+//     data: formData
+//   })
+//   .then(console.log("success"))
+//   .catch((error)=> {
+//     console.log(error.responseText)
+//   })
+// })
+
+//Experiment code to add the validation checks
 $('.form-organizer').on("submit", function (event) {
   const url = '/tweets/';
+
+  const totalCharacterCount = Number($('.counter').val());
+
+  //checks to see if the input field is blank, or exceed the 140 character limit
+  if (totalCharacterCount < 0) {
+    alert("your tweet is more than 140 characters, you cannot submit it");
+    event.preventDefault();
+    return false;
+  }
+
+  if (totalCharacterCount === 140) {
+    alert("you cannot submit an empty tweet");
+    event.preventDefault();
+    return false;
+  }
   
   event.preventDefault();
+  
   const formData = $(this).serialize()
 
   $.ajax({
@@ -40,7 +73,7 @@ $('.form-organizer').on("submit", function (event) {
   })
   .then(console.log("success"))
   .catch((error)=> {
-    console.log(error.responseText)
+    alert(error.responseText)
   })
 })
 
