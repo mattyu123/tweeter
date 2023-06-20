@@ -25,37 +25,41 @@ const createTweetElement= function(tweet) {
   return $tweet;
 };
 
-//Event listener that sends the serialized form data to the server -- Code works
-// $('.form-organizer').on("submit", function (event) {
-//   const url = '/tweets/';
-  
-//   event.preventDefault();
-//   const formData = $(this).serialize()
+// //render function takes in an array of tweet objects and appends each to #tweets-container 
+const renderTweets = function(tweetArr) {
+  for (let item = 0; item < tweetArr.length; item++) {
+    $('#tweets-container').append(createTweetElement(tweetArr[item]))
+  }
+}
 
-//   $.ajax({
-//     type: 'POST',
-//     url, 
-//     data: formData
-//   })
-//   .then(console.log("success"))
-//   .catch((error)=> {
-//     console.log(error.responseText)
-//   })
-// })
+//function that fetches tweets using ajax
+const loadTweets = function(renderTweets) {
+  const server = '/tweets/';
 
-//Experiment code to add the validation checks
+  $.ajax(server, {method: 'GET'})
+    .then (function (data) {
+      // $('#tweets-container').replaceWith(renderTweets(data[2]))
+      renderTweets(data);
+    })
+    .catch((error) => {
+      console.log(`error: ${error.status}, ${error.statusText}`)
+    })
+  }
+
+//Event listener that sends the serialized form data to the server
 $('.form-organizer').on("submit", function (event) {
   const url = '/tweets/';
 
   const totalCharacterCount = Number($('.counter').val());
 
-  //checks to see if the input field is blank, or exceed the 140 character limit
+  //checks to see if the input field exceeds the 140 character limit, alert user if that is the case
   if (totalCharacterCount < 0) {
     alert("your tweet is more than 140 characters, you cannot submit it");
     event.preventDefault();
     return false;
   }
-
+  
+  //checks to see if input field is blank, alerts user if that is the case
   if (totalCharacterCount === 140) {
     alert("you cannot submit an empty tweet");
     event.preventDefault();
@@ -71,31 +75,16 @@ $('.form-organizer').on("submit", function (event) {
     url, 
     data: formData
   })
-  .then(console.log("success"))
+  .then(loadTweets(renderTweets))
   .catch((error)=> {
     alert(error.responseText)
   })
 })
 
+
 //render function takes in an array of tweet objects and appends each to #tweets-container 
-const renderTweets = function(tweetArr) {
-  for (let item = 0; item < tweetArr.length; item++) {
-    $('#tweets-container').append(createTweetElement(tweetArr[item]))
-  }
-}
-
-//function that fetches tweets using ajax
-const loadTweets = function(renderTweets) {
-  const server = '/tweets/';
-
-  $.ajax(server, {method: 'GET'})
-    .then (function (data) {
-      renderTweets(data);
-    })
-    .catch((error) => {
-      console.log(`error: ${error.status}, ${error.statusText}`)
-    })
-  }
-
-loadTweets(renderTweets)
-
+// const renderTweets = function(tweetArr) {
+//   for (let item = 0; item < tweetArr.length; item++) {
+//     $('#tweets-container').prepend(createTweetElement(tweetArr[item]))
+//   }
+// }
