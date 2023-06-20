@@ -25,26 +25,27 @@ const createTweetElement= function(tweet) {
   return $tweet;
 };
 
-// //render function takes in an array of tweet objects and appends each to #tweets-container 
-const renderTweets = function(tweetArr) {
-  for (let item = 0; item < tweetArr.length; item++) {
-    $('#tweets-container').append(createTweetElement(tweetArr[item]))
-  }
-}
-
 //function that fetches tweets using ajax
 const loadTweets = function(renderTweets) {
   const server = '/tweets/';
 
   $.ajax(server, {method: 'GET'})
     .then (function (data) {
-      // $('#tweets-container').replaceWith(renderTweets(data[2]))
       renderTweets(data);
     })
     .catch((error) => {
       console.log(`error: ${error.status}, ${error.statusText}`)
     })
   }
+
+  // $.ajax(server, {method: 'GET'})
+  // .then (() => {
+  //   console.log("success")
+  // })
+  // .catch((error) => {
+  //   console.log(`error: ${error.status}, ${error.statusText}`)
+  // })
+  // }
 
 //Event listener that sends the serialized form data to the server
 $('.form-organizer').on("submit", function (event) {
@@ -67,24 +68,25 @@ $('.form-organizer').on("submit", function (event) {
   }
   
   event.preventDefault();
-  
   const formData = $(this).serialize()
 
+  //send the post method via ajax and then returns the new tweet
   $.ajax({
     type: 'POST',
     url, 
     data: formData
   })
-  .then(loadTweets(renderTweets))
+  .then(() => loadTweets(renderTweets))
   .catch((error)=> {
     alert(error.responseText)
   })
 })
 
+const renderTweets = function(tweetArr) {
+  //empty the #tweets-container so that tweets are not duplicated when rendered 
+  $('#tweets-container').empty();
 
-//render function takes in an array of tweet objects and appends each to #tweets-container 
-// const renderTweets = function(tweetArr) {
-//   for (let item = 0; item < tweetArr.length; item++) {
-//     $('#tweets-container').prepend(createTweetElement(tweetArr[item]))
-//   }
-// }
+  for (let item = 0; item < tweetArr.length; item++) {
+    $('#tweets-container').prepend(createTweetElement(tweetArr[item]))
+  }
+}
