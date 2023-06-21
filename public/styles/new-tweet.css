@@ -47,10 +47,21 @@ button {
   color: white;
 }
 
-#error-message{
+#tweet-long-error {
   color: white;
   background: #c51244;
   margin: 10px;
   padding: 10px;
   font-size: 1em;
+  display: none;
 }
+
+#empty-tweet-error {
+  color: white;
+  background: #c51244;
+  margin: 10px;
+  padding: 10px;
+  font-size: 1em;
+  display: none;
+}
+
