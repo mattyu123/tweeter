@@ -45,7 +45,6 @@ const loadTweets = function(renderTweets) {
     })
   }
 
-
 //Event listener that sends the serialized form data to the server
 $('.form-organizer').on("submit", function (event) {
   const url = '/tweets/';
@@ -54,30 +53,21 @@ $('.form-organizer').on("submit", function (event) {
 
   //checks to see if the input field exceeds the 140 character limit, alert user if that is the case
   if (totalCharacterCount < 0) {
-    $('#tweet-long-error').css({
-      "display": "block"
-    })
+    $('#tweet-long-error').slideDown(("slow", () => {}))
     event.preventDefault();
     return false;
   }
-  
+
 //checks to see if input field is blank, alerts user if that is the case
   if (totalCharacterCount === 140) {
-    $('#empty-tweet-error').css({
-      "display": "block"
-    })
+    $('#empty-tweet-error').slideDown(("slow", () => {}))
     event.preventDefault();
     return false;
   }
 
-  //clears any validation errors that may have remained on screen
-  $('#tweet-long-error').css({
-    "display": "none"
-  })
-
-  $('#empty-tweet-error').css({
-    "display": "none"
-  })
+  //slide the error banners up before submitting new tweet
+  $('#tweet-long-error').slideUp(("slow", () => {}))
+  $('#empty-tweet-error').slideUp(("slow", () => {}))
   
   event.preventDefault();
   const formData = $(this).serialize()
