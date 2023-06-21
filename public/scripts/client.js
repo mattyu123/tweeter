@@ -53,19 +53,6 @@ $('.form-organizer').on("submit", function (event) {
   const totalCharacterCount = Number($('.counter').val());
 
   //checks to see if the input field exceeds the 140 character limit, alert user if that is the case
-  // if (totalCharacterCount < 0) {
-  //   alert("your tweet is more than 140 characters, you cannot submit it");
-  //   event.preventDefault();
-  //   return false;
-  // }
-
-  //checks to see if input field is blank, alerts user if that is the case
-  // if (totalCharacterCount === 140) {
-  //   alert("you cannot submit an empty tweet");
-  //   event.preventDefault();
-  //   return false;
-  // }
-
   if (totalCharacterCount < 0) {
     $('#tweet-long-error').css({
       "display": "block"
@@ -73,7 +60,8 @@ $('.form-organizer').on("submit", function (event) {
     event.preventDefault();
     return false;
   }
-
+  
+//checks to see if input field is blank, alerts user if that is the case
   if (totalCharacterCount === 140) {
     $('#empty-tweet-error').css({
       "display": "block"
@@ -81,7 +69,15 @@ $('.form-organizer').on("submit", function (event) {
     event.preventDefault();
     return false;
   }
-  
+
+  //clears any validation errors that may have remained on screen
+  $('#tweet-long-error').css({
+    "display": "none"
+  })
+
+  $('#empty-tweet-error').css({
+    "display": "none"
+  })
   
   event.preventDefault();
   const formData = $(this).serialize()
