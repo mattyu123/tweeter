@@ -23,4 +23,3 @@ $('#tweet-text').on("input", function() {
     $(parent).css("color", "#545149");
   }
 });
-

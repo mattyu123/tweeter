@@ -39,37 +39,39 @@
       </div>
     </nav>
 
-    <header id = "header-bar">
-      <div>
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
-          <h2>Matt Yu</h2>
-      </div>
-    </header>
-    
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <div id="tweet-long-error">
-          <strong>You cannot have a tweet that's more than 140 characters</strong>
+    <div class='responsive-desktop'>
+      <header id = "header-bar">
+        <div>
+            <img src="/images/profile-hex.png"> 
         </div>
-        <div id="empty-tweet-error">
-          <strong>You cannot submit an empty tweet</strong>
+        <br>
+        <div>
+            <h2>Matt Yu</h2>
         </div>
-        <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets" class="form-organizer">
-          <label for="tweet-text" class="form-label">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div class="button-organizer">
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+      </header>
+      
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <div id="tweet-long-error">
+            <strong>You cannot have a tweet that's more than 140 characters</strong>
           </div>
-        </form>
-      </section>
-      <section id="tweets-container">
-      </section>
-    </main>
+          <div id="empty-tweet-error">
+            <strong>You cannot submit an empty tweet</strong>
+          </div>
+          <h2>Compose Tweet</h2>
+          <form method="POST" action="/tweets" class="form-organizer">
+            <label for="tweet-text" class="form-label">What are you humming about?</label>
+            <textarea name="text" id="tweet-text"></textarea>
+            <div class="button-organizer">
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+        <section id="tweets-container">
+        </section>
+      </main>
+    </div>
   </body>
 </html>

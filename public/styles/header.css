@@ -9,3 +9,14 @@
   margin-top: 100px;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
 }
+
+@media (min-width: 1024px) {
+  #header-bar {
+    width: 30%;
+  }
+
+  .responsive-desktop {
+    display: flex;
+    flex-direction: row;
+  }
+}
