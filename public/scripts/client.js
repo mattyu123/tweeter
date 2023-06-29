@@ -1,11 +1,11 @@
-//create an escape function to prevent
+//create an escape function to prevent XSS attacks
 const escapeText = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
-//Takes a tweet object and returns a tweet article element containing entire HTML structure of tweet
+//Take a tweet object and return a tweet article element containing entire HTML structure of tweet
 const createTweetElement = function(tweet) {
   let $tweet = (
     `<article class="individual-tweet">
@@ -76,7 +76,7 @@ $('.form-organizer').on("submit", function(event) {
   event.preventDefault();
   const formData = $(this).serialize();
 
-  //send the post method via ajax and then returns the new tweet
+  //send the post method via ajax and then return the new tweet
   $.ajax({
     type: 'POST',
     url,
