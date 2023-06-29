@@ -10,9 +10,9 @@ const createTweetElement = function(tweet) {
   let $tweet = (
     `<article class="individual-tweet">
       <header class = "tweet-header">
-        <div class="face-name">
+        <div id="face-name">
           <i class="fa-solid fa-face-smile"></i>
-          <h3>${tweet.user.name}</h3>
+          <h3 class="users-name">${tweet.user.name}</h3>
         </div>
         <h3 id="user-handle">${tweet.user.handle}</h3>
         </header>
