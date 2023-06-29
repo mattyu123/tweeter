@@ -2,6 +2,11 @@
   margin: 10px 10px 10px 10px;
 }
 
+#user-handle {
+  color: grey;
+  text-align: center;
+}
+
 .new-tweet {
   display: flex;
   flex-direction: column;
@@ -29,6 +34,7 @@ p {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin: 10px;
 }
 
 .tweet-footer {
@@ -54,8 +60,4 @@ p {
 
 .fa-heart:hover {
   color: #ff8c00;
-}
-
-#user-handle {
-  color: grey;
 }
