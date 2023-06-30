@@ -49,7 +49,7 @@ const loadTweets = function(renderTweets) {
 $('.form-organizer').on("submit", function(event) {
   const url = '/tweets/';
 
-  console.log(event)
+  // console.log(event)
 
   const totalCharacterCount = Number($('.counter').val());
 
@@ -89,6 +89,9 @@ $('.form-organizer').on("submit", function(event) {
     .catch((error)=> {
       alert(error.responseText);
     });
+
+  //clear the new tweet area after a user submits their tweet
+  $('.form-organizer')[0].reset();
 });
 
 //function takes the tweet and adds it to a new tweet container
