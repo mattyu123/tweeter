@@ -49,8 +49,7 @@ const loadTweets = function(renderTweets) {
 $('.form-organizer').on("submit", function(event) {
   const url = '/tweets/';
 
-  // console.log(event)
-
+  const tester = $('#tweet-text').val().trim()
   const totalCharacterCount = Number($('.counter').val());
 
   //Remove any existing banner and alert user if tweet more than 140 characters
@@ -64,7 +63,7 @@ $('.form-organizer').on("submit", function(event) {
 
   //Remove any existing banner and alert user if tweet is empty
   //add the condition if the tweet is empty here
-  if (totalCharacterCount === 140) {
+  if (totalCharacterCount === 140 || tester.length === 0) {
     $('#tweet-long-error').slideUp(("slow", () => {}));
     $('#empty-tweet-error').slideUp(("slow", () => {}));
     $('#empty-tweet-error').slideDown(("slow", () => {}));
