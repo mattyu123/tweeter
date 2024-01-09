@@ -1,8 +1,6 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
-
-Users can write in a tweet in the text box, and their tweet will automatically refresh to the top of their timeline. 
+Created as part of the Lighthouse Labs curriculum, created a simple Twitter clone where users can write a tweet in the text box, and their tweet will automatically refresh to the top of their timeline. 
 
 ## User Experience
 
